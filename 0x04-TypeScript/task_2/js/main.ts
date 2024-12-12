@@ -1,4 +1,3 @@
-
 interface DirectorInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
@@ -59,5 +58,19 @@ function executeWork(employee: DirectorInterface | TeacherInterface): void {
   }
 }
 
-console.log(executeWork(createEmployee(200))); 
+type Subjects = 'Math' | 'History';
+
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else if (todayClass === 'History') {
+    return 'Teaching History';
+  }
+
+  return 'Invalid class';
+}
+
+console.log(executeWork(createEmployee(200)));
 console.log(executeWork(createEmployee(1000)));
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
